@@ -1,0 +1,3 @@
+[submodule "tempo-talent-recruiter"]
+	path = tempo-talent-recruiter
+	url = git@github.com:iusildra/tempo-talent-recruiter.git
