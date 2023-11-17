@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  recruiter-service:
+    container_name: recruiter-service
+    extends:
+      file: ./tempo-talent-recruiter/docker-compose.yml
+      service: recruiter-service
+    # env_file: .env
+    networks:
+      - custom
+  recruiter-db:
+    container_name: recruiter-db
+    extends:
+      file: ./tempo-talent-recruiter/docker-compose.yml
+      service: recruiter-db
+    # env_file: .env
+    networks:
+      - custom
+  gateway-service:
+    container_name: gateway-service
+    extends:
+      file: ./tempo-talent-gateway/docker-compose.yml
+      service: gateway
+    # env_file: .env
+    networks:
+      - custom
+
+
+networks:
+  custom:
+    name: custom
+    driver: bridge
