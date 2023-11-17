@@ -4,3 +4,6 @@
 [submodule "tempo-talent-gateway"]
 	path = tempo-talent-gateway
 	url = git@github.com:iusildra/tempo-talent-gateway.git
+[submodule "tempo-talent-job"]
+	path = tempo-talent-job
+	url = git@github.com:DinoGREIL/tempo-talent-job.git
