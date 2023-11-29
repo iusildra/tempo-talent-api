@@ -1,7 +1,7 @@
 [submodule "tempo-talent-recruiter"]
 	path = tempo-talent-recruiter
 	url = git@github.com:iusildra/tempo-talent-recruiter.git
-	branch = basic-entities
+	branch = master
 [submodule "tempo-talent-gateway"]
 	path = tempo-talent-gateway
 	url = git@github.com:iusildra/tempo-talent-gateway.git
