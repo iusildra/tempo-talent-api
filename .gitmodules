@@ -10,3 +10,11 @@
 	path = tempo-talent-job
 	url = git@github.com:DinoGREIL/tempo-talent-job.git
 	branch = main
+[submodule "hello-kotlin"]
+	path = hello-kotlin
+	url = git@github.com:iusildra/hello-kotlin.git
+	branch = master
+[submodule "tempo-talent-candidate"]
+	path = tempo-talent-candidate
+	url = git@github.com:iusildra/tempo-talent-candidate.git
+	branch = master

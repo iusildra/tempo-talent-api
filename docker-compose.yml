@@ -1,6 +1,14 @@
 version: '3.8'
 
 services:
+  landing-service:
+    container_name: landing-service
+    extends:
+      file: ./hello-kotlin/docker-compose.yml
+      service: landing-service
+    # env_file: .env
+    networks:
+      - main-app
   recruiter-service:
     container_name: recruiter-service
     extends:
@@ -8,7 +16,7 @@ services:
       service: recruiter-service
     # env_file: .env
     networks:
-      - custom
+      - main-app
   recruiter-db:
     container_name: recruiter-db
     extends:
@@ -16,7 +24,23 @@ services:
       service: recruiter-db
     # env_file: .env
     networks:
-      - custom
+      - main-app
+  job-service:
+    container_name: job-service
+    extends:
+      file: ./tempo-talent-job/docker-compose.yml
+      service: job-service
+    # env_file: .env
+    networks:
+      - main-app
+  job-db:
+    container_name: job-db
+    extends:
+      file: ./tempo-talent-job/docker-compose.yml
+      service: job-db
+    # env_file: .env
+    networks:
+      - main-app
   gateway-service:
     container_name: gateway-service
     extends:
@@ -24,12 +48,34 @@ services:
       service: gateway
     # env_file: .env
     networks:
-      - custom
+      - main-app
+      - outside-app
+  # candidate-service:
+  #   container_name: candidate-service
+  #   extends:
+  #     file: ./tempo-talent-candidate/docker-compose.yml
+  #     service: candidate-service
+  #   # env_file: .env
+  #   networks:
+  #     - outside-app
+  # candidate-db:
+  #   container_name: candidate-db
+  #   extends:
+  #     file: ./tempo-talent-candidate/docker-compose.yml
+  #     service: candidate-db
+  #   # env_file: .env
+  #   networks:
+  #     - outside-app
 
 volumes:
   recruiter-data:
+  job-data:
+  candidate-data:
 
 networks:
-  custom:
-    name: custom
+  main-app:
+    name: main-app
+    driver: bridge
+  outside-app:
+    name: outside-app
     driver: bridge
